@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Breakout Game</title>
+  <style>
+    body {
+      background: linear-gradient(120deg, #1a1a1a, #333);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      flex-direction: column;
+      margin: 0;
+    }
+
+    h1 {
+      color: #00ffff;
+      margin-bottom: 10px;
+      font-size: 2.5rem;
+      animation: popIn 1s ease-in;
+    }
+
+    canvas {
+      background-color: #111;
+      border: 3px solid #00ffff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      display: block;
+    }
+
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      canvas {
+        width: 100% !important;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔥 Breakout Game 🔥</h1>
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- Link to your JS game script -->
+  <script src="{{ url_for('static', filename='game.js') }}"></script>
+
+</body>
+</html>

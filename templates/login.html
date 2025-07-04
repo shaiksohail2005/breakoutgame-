@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Breakout Game</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      overflow: hidden;
+      background: #1c1c1c;
+    }
+
+    .login-container {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-box {
+      background: rgba(255, 255, 255, 0.05);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.6);
+      text-align: center;
+      color: #fff;
+      width: 90%;
+      max-width: 400px;
+      animation: fadeIn 1s ease;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      background: linear-gradient(90deg, blue, purple);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      outline: none;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+    }
+
+    input::placeholder {
+      color: #bbb;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(45deg, green, limegreen);
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 1px rgba(225, 172, 206, 0.545);
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      h2 {
+        font-size: 2rem;
+      }
+
+      .btn {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <h2>🎮 Enter Your Name</h2>
+      <div class="input-group">
+        <input type="text" id="username" name="username" placeholder="Your name..." required>
+      </div>
+      <!-- Start Game Button -->
+      <button class="btn" onclick="login()">Start Game</button>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById("username").value.trim();
+      if (!username) {
+        alert("Please enter your name!");
+        return;
+      }
+
+      // Save username in localStorage (optional if using in next page)
+      localStorage.setItem("playerName", username);
+
+      // Redirect to Flask route /contact
+      window.location.href = "{{ url_for('contact') }}";
+    }
+  </script>
+</body>
+</html>

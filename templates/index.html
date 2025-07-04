@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Breakout Game</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      overflow: hidden;
+    
+    }
+
+    .container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+      animation: fadeIn 1.5s ease-out;
+    }
+
+      
+      h1 {
+       font-size: 3.5rem;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #00f260, #0575e6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      animation: pop 1s ease-in-out;
+      }
+
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: black;
+    }
+
+    .btn {
+      padding: 14px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(45deg, #ff6ec4, #7873f5);
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(255, 110, 196, 0.4);
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(255, 110, 196, 0.8);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes pop {
+      0% {
+        transform: scale(0.6);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .btn {
+        font-size: 16px;
+        padding: 12px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- <video autoplay muted loop class="video-bg">
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-game-space-background-237.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video> -->
+
+  <div class="container">
+    <h1>🚀 Breakout Game</h1>
+    <p>Ready to smash some bricks and top the leaderboard!</p>
+    <a href="{{url_for('about')}}">
+      <button class="btn">Start Playing</button>
+    </a>
+  </div>
+
+</body>
+</html>
